@@ -1,0 +1,43 @@
+/* style.css for Lesson 5: Carousel */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.carousel-container {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-slide {
+    display: flex;
+    width: 300%; /* 100% for each image */
+    animation: slide 10s infinite;
+}
+
+.carousel-slide img {
+    width: 33.333%; /* Each image takes up a third of the slide */
+    height: auto;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-100%);
+    }
+    66% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

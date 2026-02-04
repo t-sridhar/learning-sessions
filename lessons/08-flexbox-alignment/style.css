@@ -1,0 +1,23 @@
+/* style.css for Lesson 8: Flexbox Alignment */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    height: 300px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+
+    /* Try changing these properties */
+    justify-content: center; /* align along main axis */
+    align-items: center; /* align along cross axis */
+}
+
+.flex-item {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}
