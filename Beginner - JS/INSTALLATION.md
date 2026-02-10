@@ -1,14 +1,14 @@
 # Node.js Installation Guide
 
-This guide will help you install Node.js to run the JavaScript examples on your computer.
+Simple guide to install Node.js using **Node Version Manager (nvm)** - the recommended way to manage Node.js versions.
 
-## 📋 What is Node.js?
+## 📋 What is nvm?
 
-**Node.js** is a JavaScript runtime that lets you run JavaScript outside the browser (on your computer, in the terminal). You need it to run the `.js` lesson files.
-
-**What you get:**
-- `node` - Run JavaScript files
-- `npm` - Install JavaScript packages (Node Package Manager)
+**nvm (Node Version Manager)** is a tool that lets you:
+- ✅ Install multiple Node.js versions
+- ✅ Switch between versions easily
+- ✅ No permission issues
+- ✅ Easy to update
 
 ---
 
@@ -24,189 +24,131 @@ Choose your operating system:
 
 ## 🪟 Windows Installation
 
-### **Method 1: Official Installer (Recommended)**
+### **Step 1: Install nvm-windows**
 
-1. **Download Node.js:**
-   - Go to [https://nodejs.org](https://nodejs.org)
-   - Download the **LTS version** (Long Term Support)
-   - Choose the **Windows Installer (.msi)**
+1. **Download nvm-windows:**
+   - Go to: [https://github.com/coreybutler/nvm-windows/releases](https://github.com/coreybutler/nvm-windows/releases)
+   - Download `nvm-setup.exe` (latest version)
 
-2. **Run the Installer:**
-   - Double-click the downloaded `.msi` file
-   - Click "Next" through the installation wizard
-   - Accept the license agreement
-   - Keep default installation path: `C:\Program Files\nodejs\`
-   - ✅ Make sure "Add to PATH" is checked
+2. **Run the installer:**
+   - Double-click `nvm-setup.exe`
+   - Click "Next" through the installation
+   - Keep default installation paths
    - Click "Install"
 
-3. **Verify Installation:**
+3. **Verify installation:**
    - Open **Command Prompt** or **PowerShell**
-   - Type these commands:
-   ```bash
-   node --version
-   npm --version
-   ```
-   - You should see version numbers (e.g., `v20.11.0` and `10.2.4`)
-
-### **Method 2: Using Chocolatey (For Advanced Users)**
-
-If you have Chocolatey package manager:
-
-```bash
-choco install nodejs-lts
-```
-
-### **Troubleshooting Windows:**
-
-**Issue: "node is not recognized"**
-- Close and reopen Command Prompt/PowerShell
-- Or add Node.js to PATH manually:
-  1. Search "Environment Variables" in Windows
-  2. Edit "Path" under System Variables
-  3. Add `C:\Program Files\nodejs\`
-  4. Restart terminal
-
----
-
-## 🍎 macOS Installation
-
-### **Method 1: Official Installer (Easiest)**
-
-1. **Download Node.js:**
-   - Go to [https://nodejs.org](https://nodejs.org)
-   - Download the **LTS version**
-   - Choose the **macOS Installer (.pkg)**
-
-2. **Run the Installer:**
-   - Double-click the downloaded `.pkg` file
-   - Follow the installation wizard
-   - Enter your password when prompted
-   - Click "Install"
-
-3. **Verify Installation:**
-   - Open **Terminal** (Applications → Utilities → Terminal)
    - Type:
    ```bash
-   node --version
-   npm --version
+   nvm version
    ```
+   - You should see the version number
 
-### **Method 2: Using Homebrew (Recommended for Developers)**
-
-1. **Install Homebrew** (if not already installed):
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-2. **Install Node.js:**
-   ```bash
-   brew install node
-   ```
-
-3. **Verify:**
-   ```bash
-   node --version
-   npm --version
-   ```
-
-### **Method 3: Using nvm (Node Version Manager)**
-
-Best for managing multiple Node.js versions:
-
-1. **Install nvm:**
-   ```bash
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-   ```
-
-2. **Restart Terminal, then install Node.js:**
-   ```bash
-   nvm install --lts
-   nvm use --lts
-   ```
-
-3. **Verify:**
-   ```bash
-   node --version
-   ```
-
----
-
-## 🐧 Linux Installation
-
-### **Ubuntu/Debian**
-
-#### **Method 1: Using apt (Official Repository)**
+### **Step 2: Install Node.js**
 
 ```bash
-# Update package index
-sudo apt update
+# Install latest LTS (Long Term Support) version
+nvm install lts
 
-# Install Node.js and npm
-sudo apt install nodejs npm
+# Use the installed version
+nvm use lts
 
 # Verify installation
 node --version
 npm --version
 ```
 
-#### **Method 2: Using NodeSource (Latest Version)**
+**Done!** ✅
 
-For the latest LTS version:
+---
+
+## 🍎 macOS Installation
+
+### **Step 1: Install nvm**
+
+Open **Terminal** and run:
 
 ```bash
-# Download and run NodeSource setup script
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+# Download and install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
 
-# Install Node.js
-sudo apt install -y nodejs
+### **Step 2: Load nvm**
 
-# Verify
+```bash
+# Add to your shell profile (choose one based on your shell)
+
+# For bash (default):
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
+source ~/.bashrc
+
+# For zsh (common on newer macOS):
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### **Step 3: Install Node.js**
+
+```bash
+# Install latest LTS version
+nvm install --lts
+
+# Use the installed version
+nvm use --lts
+
+# Verify installation
 node --version
 npm --version
 ```
 
-### **Fedora/RHEL/CentOS**
+**Done!** ✅
+
+---
+
+## 🐧 Linux Installation
+
+### **Step 1: Install nvm**
+
+Open **Terminal** and run:
 
 ```bash
-# Install Node.js
-sudo dnf install nodejs npm
-
-# Or using NodeSource:
-curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -
-sudo dnf install -y nodejs
+# Download and install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-### **Arch Linux**
+### **Step 2: Load nvm**
 
 ```bash
-sudo pacman -S nodejs npm
+# Add to your shell profile
+
+# For bash:
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
+source ~/.bashrc
+
+# For zsh:
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+source ~/.zshrc
 ```
 
-### **Using nvm (Recommended for All Linux Distros)**
+### **Step 3: Install Node.js**
 
-1. **Install nvm:**
-   ```bash
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-   ```
+```bash
+# Install latest LTS version
+nvm install --lts
 
-2. **Reload shell configuration:**
-   ```bash
-   source ~/.bashrc
-   # or
-   source ~/.zshrc
-   ```
+# Use the installed version
+nvm use --lts
 
-3. **Install Node.js:**
-   ```bash
-   nvm install --lts
-   nvm use --lts
-   ```
+# Verify installation
+node --version
+npm --version
+```
 
-4. **Verify:**
-   ```bash
-   node --version
-   npm --version
-   ```
+**Done!** ✅
 
 ---
 
@@ -214,47 +156,108 @@ sudo pacman -S nodejs npm
 
 After installation, verify everything works:
 
-### **1. Check Versions**
-
-Open Terminal/Command Prompt and run:
-
 ```bash
+# Check Node.js version
 node --version
 # Should output: v20.x.x (or similar)
 
+# Check npm version
 npm --version
 # Should output: 10.x.x (or similar)
+
+# Check nvm
+nvm --version
+# Should output: 0.39.x (or similar)
 ```
 
-### **2. Test Node.js**
+### **Test Node.js**
 
-Create a test file:
+Create and run a test file:
 
 ```bash
-# Create a test file
-echo "console.log('Hello from Node.js!');" > test.js
+# Create test file
+echo 'console.log("Hello from Node.js!")' > test.js
 
 # Run it
 node test.js
-
 # Should output: Hello from Node.js!
 
 # Clean up
 rm test.js
 ```
 
-### **3. Test Interactive Mode**
+---
+
+## 🎯 Common nvm Commands
 
 ```bash
-node
-# You'll enter Node.js REPL (interactive mode)
+# List installed versions
+nvm list
+
+# List available versions to install
+nvm list available  # Windows
+nvm ls-remote      # macOS/Linux
+
+# Install specific version
+nvm install 20.11.0
+
+# Install latest LTS
+nvm install --lts
+
+# Use specific version
+nvm use 20.11.0
+
+# Set default version
+nvm alias default 20.11.0
+
+# Check current version
+nvm current
+
+# Uninstall a version
+nvm uninstall 18.0.0
 ```
 
-Then type:
-```javascript
-> console.log("It works!")
-> 2 + 2
-> .exit  // to exit
+---
+
+## 🔧 Troubleshooting
+
+### **Issue 1: "nvm: command not found" (macOS/Linux)**
+
+**Solution:**
+```bash
+# Check if nvm is installed
+ls -la ~/.nvm
+
+# If it exists, reload your shell profile
+source ~/.bashrc  # or ~/.zshrc
+
+# If it doesn't exist, reinstall nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+### **Issue 2: "nvm: command not found" (Windows)**
+
+**Solution:**
+- Restart Command Prompt/PowerShell
+- Run as Administrator
+- Reinstall nvm-windows
+
+### **Issue 3: Permission errors**
+
+**Solution:**
+nvm handles permissions automatically! No `sudo` needed.
+
+### **Issue 4: Node version won't switch**
+
+**Solution:**
+```bash
+# Use the version explicitly
+nvm use 20.11.0
+
+# Set it as default
+nvm alias default 20.11.0
+
+# Restart terminal
 ```
 
 ---
@@ -264,107 +267,36 @@ Then type:
 Now you can run the lesson files:
 
 ```bash
-# Navigate to the basic directory
-cd /home/boi/temp/basic
+# Navigate to JavaScript course directory
+cd "Beginner - JS"
 
 # Run any lesson
 node 01-introduction-and-variables.js
 node 02-data-types.js
-node 03-operators.js
-# etc...
+# ... etc
 ```
 
 ---
 
-## 🎯 Quick Start After Installation
+## 💡 Why nvm?
 
-### **Option 1: Run Lessons**
+### **Advantages:**
 
-```bash
-cd /home/boi/temp/basic
-node 01-introduction-and-variables.js
-```
+✅ **Multiple versions** - Run different Node.js versions for different projects
+✅ **No permission issues** - Installs in your home directory
+✅ **Easy updates** - Update Node.js with a single command
+✅ **Safe** - Won't break system files
+✅ **Recommended** - Industry standard for developers
 
-### **Option 2: Interactive Console**
+### **vs Official Installer:**
 
-```bash
-cd /home/boi/temp/basic
-node interactive-test.js
-```
-
-### **Option 3: Browser Lab**
-
-```bash
-cd /home/boi/temp/basic
-# Open test.html in your browser
-xdg-open test.html      # Linux
-open test.html          # Mac
-start test.html         # Windows
-```
-
----
-
-## 🔧 Common Issues & Solutions
-
-### **Issue 1: "command not found: node"**
-
-**Solution:**
-- Make sure installation completed successfully
-- Restart your terminal/command prompt
-- Check if Node.js is in your PATH
-- Try reinstalling
-
-### **Issue 2: "Permission denied" (Linux/Mac)**
-
-**Solution:**
-```bash
-# Don't use sudo with npm
-# Instead, configure npm to use a different directory:
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
-```
-
-### **Issue 3: Old Version of Node.js**
-
-**Solution:**
-- Uninstall old version
-- Install latest LTS from nodejs.org
-- Or use nvm to manage versions:
-  ```bash
-  nvm install --lts
-  nvm use --lts
-  ```
-
-### **Issue 4: npm not working after Node.js installation**
-
-**Solution:**
-```bash
-# Reinstall npm
-npm install -g npm@latest
-
-# Or on Linux/Mac:
-sudo npm install -g npm@latest
-```
-
----
-
-## 📚 Which Version Should I Install?
-
-### **LTS (Long Term Support) - Recommended**
-- Stable and reliable
-- Recommended for learning
-- Version numbers: 18.x, 20.x, etc.
-- Download from: [https://nodejs.org](https://nodejs.org) (left button)
-
-### **Current - Latest Features**
-- Has newest features
-- May have bugs
-- For advanced users
-- Download from: [https://nodejs.org](https://nodejs.org) (right button)
-
-**👉 For this course, use LTS version!**
+| Feature | nvm | Official Installer |
+|---------|-----|-------------------|
+| Multiple versions | ✅ Yes | ❌ No |
+| Easy updates | ✅ Yes | ⚠️ Manual |
+| Permission issues | ✅ None | ⚠️ Sometimes |
+| Switch versions | ✅ Easy | ❌ Hard |
+| Developer choice | ✅ Preferred | ⚠️ Basic |
 
 ---
 
@@ -372,107 +304,42 @@ sudo npm install -g npm@latest
 
 After installing Node.js:
 
-1. ✅ Verify installation with `node --version`
-2. ✅ Navigate to `/home/boi/temp/basic`
-3. ✅ Run your first lesson: `node 01-introduction-and-variables.js`
-4. ✅ Try the interactive console: `node interactive-test.js`
-5. ✅ Open `test.html` in your browser
-6. ✅ Read `TESTING-GUIDE.md` for more tips
+1. ✅ Verify installation: `node --version`
+2. ✅ Navigate to course: `cd "Beginner - JS"`
+3. ✅ Run first lesson: `node 01-introduction-and-variables.js`
+4. ✅ Read [QUICK-START.md](QUICK-START.md) for tips
+5. ✅ Check [TESTING-GUIDE.md](TESTING-GUIDE.md) for testing methods
 
 ---
 
 ## 📖 Additional Resources
 
-### **Official Documentation**
-- Node.js Official Site: [https://nodejs.org](https://nodejs.org)
-- Node.js Documentation: [https://nodejs.org/docs](https://nodejs.org/docs)
-- npm Documentation: [https://docs.npmjs.com](https://docs.npmjs.com)
+### **nvm Documentation**
+- nvm (macOS/Linux): [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+- nvm-windows: [https://github.com/coreybutler/nvm-windows](https://github.com/coreybutler/nvm-windows)
 
-### **Package Managers**
-- **nvm** (Version Manager): [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
-- **Homebrew** (macOS): [https://brew.sh](https://brew.sh)
-- **Chocolatey** (Windows): [https://chocolatey.org](https://chocolatey.org)
+### **Node.js**
+- Official Site: [https://nodejs.org](https://nodejs.org)
+- Documentation: [https://nodejs.org/docs](https://nodejs.org/docs)
 
-### **Learning Resources**
-- Node.js Getting Started: [https://nodejs.dev/learn](https://nodejs.dev/learn)
-- npm Getting Started: [https://docs.npmjs.com/getting-started](https://docs.npmjs.com/getting-started)
-
----
-
-## 💡 Pro Tips
-
-### **Tip 1: Use a Version Manager**
-
-Instead of installing Node.js directly, use **nvm** (Node Version Manager):
-- Easily switch between Node.js versions
-- No permission issues
-- Safer for development
-
-### **Tip 2: Keep Node.js Updated**
-
-Check for updates regularly:
-```bash
-node --version
-# Compare with latest at nodejs.org
-```
-
-Update with nvm:
-```bash
-nvm install --lts
-nvm use --lts
-```
-
-### **Tip 3: Use a Good Terminal**
-
-**Windows:**
-- Windows Terminal (modern, recommended)
-- Git Bash
-- PowerShell
-
-**macOS:**
-- iTerm2 (better than default Terminal)
-- Terminal with zsh
-
-**Linux:**
-- Your default terminal is usually fine
-- Try Terminator or Tilix for split panes
-
-### **Tip 4: Install a Code Editor**
-
-While not required, these make coding easier:
-- **VS Code** (free, recommended): [https://code.visualstudio.com](https://code.visualstudio.com)
-- **Sublime Text** (fast, lightweight)
-- **Atom** (customizable)
+### **Help**
+- nvm issues: GitHub repository issues
+- Node.js help: Stack Overflow, Discord communities
 
 ---
 
 ## ✨ You're Ready!
 
-Once you see version numbers from `node --version` and `npm --version`, you're all set to start learning JavaScript! 🎉
+Once you see version numbers from `node --version`, you're all set! 🎉
 
-**Next steps:**
-1. Navigate to the `basic` directory
-2. Run `node 01-introduction-and-variables.js`
-3. Start learning!
+**Start learning:**
+```bash
+cd "Beginner - JS"
+node 01-introduction-and-variables.js
+```
 
 Happy coding! 🚀
 
 ---
 
-## 📞 Need Help?
-
-If you encounter issues:
-
-1. Check this guide's troubleshooting section
-2. Search for your error message online
-3. Visit Node.js documentation
-4. Ask in developer communities:
-   - Stack Overflow
-   - Node.js Discord
-   - Reddit r/node
-
-**Common search terms:**
-- "install node.js [your OS]"
-- "node command not found [your OS]"
-- "update node.js"
-- "nvm installation"
+**Need help?** Check [TESTING-GUIDE.md](TESTING-GUIDE.md) for more information.

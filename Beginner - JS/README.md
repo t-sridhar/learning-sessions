@@ -22,7 +22,16 @@ Welcome to the JavaScript Basics course! This comprehensive tutorial covers fund
 ## 🚀 Quick Start
 
 ### **Prerequisites**
-- Node.js installed ([See INSTALLATION.md](INSTALLATION.md))
+
+1. **Clone the repository** (if you haven't already):
+   ```bash
+   git clone https://github.com/t-sridhar/learning-sessions.git
+   cd "learning-sessions/Beginner - JS"
+   ```
+
+2. **Install Node.js via nvm:**
+   - See [INSTALLATION.md](INSTALLATION.md) for simple nvm setup
+   - nvm is the recommended way (no permission issues!)
 
 ### **Run Your First Lesson**
 ```bash

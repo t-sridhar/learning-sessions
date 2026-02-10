@@ -4,6 +4,17 @@ Get up and running with JavaScript in 5 minutes!
 
 ## ⚡ Super Quick Start
 
+### 0️⃣ **Clone the Repository**
+
+If you haven't already:
+
+```bash
+git clone https://github.com/t-sridhar/learning-sessions.git
+cd "learning-sessions/Beginner - JS"
+```
+
+📖 **Complete guide:** See [../GETTING-STARTED.md](../GETTING-STARTED.md)
+
 ### 1️⃣ **Check if Node.js is Installed**
 
 Open your terminal and run:

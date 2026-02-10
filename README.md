@@ -2,6 +2,22 @@
 
 Welcome to the **Beginner Web Development Learning Sessions**! This repository contains comprehensive learning materials for JavaScript, HTML, and CSS.
 
+## 🚀 Quick Start
+
+### **First Time? Clone This Repository:**
+
+```bash
+# Clone the repository
+git clone https://github.com/t-sridhar/learning-sessions.git
+
+# Navigate into it
+cd learning-sessions
+```
+
+📖 **Complete setup guide:** [GETTING-STARTED.md](GETTING-STARTED.md)
+
+---
+
 ## 📂 Repository Structure
 
 ```
@@ -208,13 +224,21 @@ Combine JavaScript and HTML/CSS to build:
 
 ## 🛠️ Prerequisites
 
-### For JavaScript:
-- **Node.js** - Required to run `.js` files
-- See `Beginner - JS/INSTALLATION.md` for setup guide
+### **Before You Start:**
 
-### For HTML/CSS:
-- **Web Browser** - Chrome, Firefox, Edge, or Safari
-- No installation needed - just open `.html` files!
+1. **Clone this repository** - See [GETTING-STARTED.md](GETTING-STARTED.md)
+   ```bash
+   git clone https://github.com/t-sridhar/learning-sessions.git
+   cd learning-sessions
+   ```
+
+2. **For JavaScript:**
+   - **Node.js via nvm** - Required to run `.js` files
+   - Simple installation guide: `Beginner - JS/INSTALLATION.md`
+
+3. **For HTML/CSS:**
+   - **Web Browser** - Chrome, Firefox, Edge, or Safari
+   - No installation needed - just open `.html` files!
 
 ---
 
