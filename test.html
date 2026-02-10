@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Testing Lab</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        h1 {
+            color: #4ec9b0;
+            border-bottom: 2px solid #4ec9b0;
+            padding-bottom: 10px;
+        }
+        .output {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            min-height: 100px;
+        }
+        .output-title {
+            color: #569cd6;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #1177bb;
+        }
+        .code-section {
+            background: #2d2d30;
+            border-left: 3px solid #4ec9b0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        pre {
+            margin: 0;
+            color: #ce9178;
+        }
+        .info {
+            background: #1a1a2e;
+            border-left: 3px solid #ffd700;
+            padding: 10px;
+            margin: 10px 0;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 JavaScript Testing Lab</h1>
+
+    <div class="info">
+        ℹ️ Open the browser console (F12) to see console.log() output.
+        Results also appear below!
+    </div>
+
+    <h2>Quick Tests</h2>
+    <button onclick="testVariables()">Test Variables</button>
+    <button onclick="testDataTypes()">Test Data Types</button>
+    <button onclick="testOperators()">Test Operators</button>
+    <button onclick="testArrays()">Test Arrays</button>
+    <button onclick="testObjects()">Test Objects</button>
+    <button onclick="clearOutput()">Clear Output</button>
+
+    <div class="output">
+        <div class="output-title">📊 Output:</div>
+        <div id="output"></div>
+    </div>
+
+    <h2>Your Code Editor</h2>
+    <div class="code-section">
+        <p style="color: #4ec9b0; margin-top: 0;">✏️ Edit and test your own code below:</p>
+        <textarea id="codeEditor" style="width: 100%; height: 200px; background: #1e1e1e; color: #d4d4d4; border: 1px solid #3e3e42; padding: 10px; font-family: 'Courier New', monospace; font-size: 14px; border-radius: 3px;">// Write your JavaScript code here
+let message = "Hello, World!";
+console.log(message);
+
+// Try creating variables
+let myName = "Your Name";
+let myAge = 25;
+console.log(`My name is ${myName} and I'm ${myAge} years old`);
+
+// Try some math
+let result = 10 + 20;
+console.log("10 + 20 =", result);</textarea>
+        <br><br>
+        <button onclick="runCustomCode()" style="background: #16825d;">▶️ Run My Code</button>
+        <button onclick="clearEditor()">🗑️ Clear Editor</button>
+    </div>
+
+    <h2>Learning Resources</h2>
+    <div class="code-section">
+        <h3 style="color: #4ec9b0; margin-top: 0;">📚 Available Lessons:</h3>
+        <pre>01-introduction-and-variables.js
+02-data-types.js
+03-operators.js
+04-control-flow.js
+05-loops.js
+06-functions.js
+07-arrays.js
+08-objects.js
+09-array-methods.js
+10-string-methods.js</pre>
+        <p style="margin-top: 15px;">Run lessons in terminal: <code style="background: #1e1e1e; padding: 3px 8px; border-radius: 3px;">node 01-introduction-and-variables.js</code></p>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+
+        // Helper function to display output
+        function print(text, color = '#d4d4d4') {
+            const div = document.createElement('div');
+            div.style.color = color;
+            div.style.marginBottom = '5px';
+            div.textContent = text;
+            output.appendChild(div);
+            console.log(text);
+        }
+
+        function printSection(title) {
+            const div = document.createElement('div');
+            div.style.color = '#4ec9b0';
+            div.style.fontWeight = 'bold';
+            div.style.marginTop = '15px';
+            div.style.marginBottom = '10px';
+            div.style.borderBottom = '1px solid #3e3e42';
+            div.style.paddingBottom = '5px';
+            div.textContent = title;
+            output.appendChild(div);
+        }
+
+        function clearOutput() {
+            output.innerHTML = '';
+        }
+
+        // Test Variables
+        function testVariables() {
+            clearOutput();
+            printSection('=== TESTING VARIABLES ===');
+
+            let firstName = "Alice";
+            let lastName = "Smith";
+            const PI = 3.14159;
+
+            print(`First Name: ${firstName}`);
+            print(`Last Name: ${lastName}`);
+            print(`PI constant: ${PI}`);
+
+            firstName = "Bob";
+            print(`Changed first name to: ${firstName}`, '#ce9178');
+
+            print('✅ Variables test complete!', '#4ec9b0');
+        }
+
+        // Test Data Types
+        function testDataTypes() {
+            clearOutput();
+            printSection('=== TESTING DATA TYPES ===');
+
+            // String
+            let text = "Hello, JavaScript!";
+            print(`String: "${text}" (type: ${typeof text})`);
+
+            // Number
+            let num = 42;
+            print(`Number: ${num} (type: ${typeof num})`);
+
+            // Boolean
+            let isActive = true;
+            print(`Boolean: ${isActive} (type: ${typeof isActive})`);
+
+            // Array
+            let colors = ["red", "green", "blue"];
+            print(`Array: [${colors.join(", ")}] (type: ${typeof colors})`);
+
+            // Object
+            let person = { name: "John", age: 30 };
+            print(`Object: ${JSON.stringify(person)} (type: ${typeof person})`);
+
+            // Undefined
+            let notDefined;
+            print(`Undefined: ${notDefined} (type: ${typeof notDefined})`);
+
+            // Null
+            let empty = null;
+            print(`Null: ${empty} (type: ${typeof empty})`);
+
+            print('✅ Data types test complete!', '#4ec9b0');
+        }
+
+        // Test Operators
+        function testOperators() {
+            clearOutput();
+            printSection('=== TESTING OPERATORS ===');
+
+            let a = 10, b = 3;
+
+            print(`a = ${a}, b = ${b}`);
+            print(`a + b = ${a + b}`);
+            print(`a - b = ${a - b}`);
+            print(`a * b = ${a * b}`);
+            print(`a / b = ${a / b}`);
+            print(`a % b = ${a % b}`);
+            print(`a ** b = ${a ** b}`);
+
+            print('\nComparisons:', '#569cd6');
+            print(`a > b: ${a > b}`);
+            print(`a === b: ${a === b}`);
+            print(`a !== b: ${a !== b}`);
+
+            print('\nLogical:', '#569cd6');
+            print(`true && false = ${true && false}`);
+            print(`true || false = ${true || false}`);
+            print(`!true = ${!true}`);
+
+            print('✅ Operators test complete!', '#4ec9b0');
+        }
+
+        // Test Arrays
+        function testArrays() {
+            clearOutput();
+            printSection('=== TESTING ARRAYS ===');
+
+            let numbers = [1, 2, 3, 4, 5];
+            print(`Original array: [${numbers}]`);
+
+            // Map
+            let doubled = numbers.map(n => n * 2);
+            print(`Doubled (map): [${doubled}]`);
+
+            // Filter
+            let evens = numbers.filter(n => n % 2 === 0);
+            print(`Even numbers (filter): [${evens}]`);
+
+            // Reduce
+            let sum = numbers.reduce((acc, n) => acc + n, 0);
+            print(`Sum (reduce): ${sum}`);
+
+            // Array methods
+            print('\nArray operations:', '#569cd6');
+            numbers.push(6);
+            print(`After push(6): [${numbers}]`);
+
+            let last = numbers.pop();
+            print(`Popped: ${last}, Array: [${numbers}]`);
+
+            print('✅ Arrays test complete!', '#4ec9b0');
+        }
+
+        // Test Objects
+        function testObjects() {
+            clearOutput();
+            printSection('=== TESTING OBJECTS ===');
+
+            let user = {
+                name: "Alice",
+                age: 25,
+                email: "alice@example.com",
+                greet: function() {
+                    return `Hello, I'm ${this.name}!`;
+                }
+            };
+
+            print(`Name: ${user.name}`);
+            print(`Age: ${user.age}`);
+            print(`Email: ${user.email}`);
+            print(`Greeting: ${user.greet()}`, '#ce9178');
+
+            print('\nObject keys:', '#569cd6');
+            print(`Keys: [${Object.keys(user).filter(k => k !== 'greet')}]`);
+
+            print('\nObject values:', '#569cd6');
+            print(`Values: [${Object.values(user).filter(v => typeof v !== 'function')}]`);
+
+            // Nested object
+            let product = {
+                name: "Laptop",
+                specs: {
+                    cpu: "Intel i7",
+                    ram: "16GB"
+                }
+            };
+            print(`\nNested object: ${product.name}`);
+            print(`CPU: ${product.specs.cpu}`);
+            print(`RAM: ${product.specs.ram}`);
+
+            print('✅ Objects test complete!', '#4ec9b0');
+        }
+
+        // Run custom code
+        function runCustomCode() {
+            clearOutput();
+            printSection('=== RUNNING YOUR CODE ===');
+
+            const code = document.getElementById('codeEditor').value;
+
+            // Override console.log to capture output
+            const originalLog = console.log;
+            console.log = function(...args) {
+                print(args.map(arg =>
+                    typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+                ).join(' '));
+                originalLog.apply(console, args);
+            };
+
+            try {
+                eval(code);
+                print('\n✅ Code executed successfully!', '#4ec9b0');
+            } catch (error) {
+                print(`\n❌ Error: ${error.message}`, '#f48771');
+            }
+
+            // Restore original console.log
+            console.log = originalLog;
+        }
+
+        function clearEditor() {
+            document.getElementById('codeEditor').value = '// Write your JavaScript code here\n\n';
+        }
+
+        // Welcome message
+        window.addEventListener('load', function() {
+            printSection('👋 Welcome to JavaScript Testing Lab!');
+            print('Click any button above to test JavaScript concepts');
+            print('Or write your own code in the editor below');
+            print('Remember to open the console (F12) for full output!', '#ffd700');
+        });
+    </script>
+</body>
+</html>
